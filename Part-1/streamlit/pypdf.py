@@ -4,14 +4,14 @@ import PyPDF2
 import os
 import subprocess
 
-st.title("PDF Analyzer through PyPDF2 and Nougat")
+st.title("PDF Analyzer")
 
 def download_pdf(pdf_url, save_path):
     response = requests.get(pdf_url)
     with open(save_path, 'wb') as file:
         file.write(response.content)
 
-def extract_text_from_pdf(pdf_path):
+def pypdf_extract(pdf_path):
     text = ""
     pdf_file = open(pdf_path, "rb")
     pdf_reader = PyPDF2.PdfReader(pdf_file)
@@ -23,59 +23,60 @@ def extract_text_from_pdf(pdf_path):
     pdf_file.close()
     return text
 
-def nougat(pdf_path):
+def nougat_extract(pdf_path):
+    path = pdf_path
     pdf_name = os.path.splitext(os.path.basename(pdf_path))[0]
-    command = [
-        "nougat",
-        "--markdown",
-        "pdf",
-        pdf_path,
-        "--out",
-        "input/",
-    ]
+    print(pdf_name)
+    # command = [
+    #     "nougat",
+    #     "--markdown",
+    #     "pdf",
+    #     path,
+    #     "--out",
+    #     ".",
+    # ]
+
     with st.spinner("Processing..."):
-        subprocess.run(command, check=True)
-        os.remove(pdf_path)
+        # Set the environment variable
+        os.environ['PYTORCH_ENABLE_MPS_FALLBACK'] = '1'
+
+        # Run the nougat command
+        subprocess.run(['nougat', '--markdown', path, 'f2.pdf', '--out', '.'], check=True)
         st.success("Process completed!")
         pdf_name = os.path.splitext(os.path.basename(pdf_path))[0]
-        file_contents = f'input/{pdf_name}.mmd'
+        file_contents = f'{pdf_name}.mmd'
         file = open(file_contents, 'r')
+        return file.read()
 
-        st.text("Nougat Summary:")
-        st.code(file.read())
 
-# Streamlit UI
-col1, col2 = st.columns(2)
+
+def display(package, text_string):
+    title = package
+    text = text_string
+
+    st.markdown(
+        f'<h3>{title}</h3>'
+        f'<div style="white-space: pre-wrap; border:1px solid #ccc; padding:10px; overflow:auto; width:1000px; height:500px;">'
+        f'{text}'
+        f'</div>', 
+        unsafe_allow_html=True
+    )
+
 
 # Input for the PDF link
 pdf_link = st.text_input("Enter the PDF link:")
+analyze_button = st.button("Analyze")
 
-option = st.selectbox(
-    'Select the type of analysis',
-    ('PyPDF2', 'Nougat')
-)
-
-if pdf_link:
+if pdf_link and analyze_button:
     file_name = pdf_link.split("/")[-1]
-    st.info(f"Analyzing {file_name}...")
     download_pdf(pdf_link, file_name)
+    pypdf_text = pypdf_extract(file_name)
+    display("PyPDF", pypdf_text)
+    nougat_text = nougat_extract(file_name)
+    display("Nougat", nougat_text)
+try:
+    if pdf_link:
+        os.remove(file_name)
+except:
+    pass
 
-# Apply custom styling to col1
-with col1:
-    if option == 'PyPDF2' and pdf_link:
-        st.header("PDF Analysis")
-        st.subheader("Text Extraction")
-        text = extract_text_from_pdf(file_name)
-        st.write(text)
-    elif option == 'Nougat' and pdf_link:
-        st.header("PDF Analysis")
-        st.subheader("Text Extraction")
-        nougat(file_name)
-
-with col2:
-    st.header("Summary of the PDF")
-    st.write("Summary of the PDF will be displayed here")
-
-# Clean up the temporary PDF file
-if pdf_link:
-    os.remove(file_name)

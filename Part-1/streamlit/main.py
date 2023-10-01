@@ -3,13 +3,19 @@ import requests
 import PyPDF2
 import os
 import subprocess
+import spacy
+import re
+import time
 
 st.title("PDF Analyzer")
+
+
 
 def download_pdf(pdf_url, save_path):
     response = requests.get(pdf_url)
     with open(save_path, 'wb') as file:
         file.write(response.content)
+
 
 def pypdf_extract(pdf_path):
     text = ""
@@ -23,31 +29,20 @@ def pypdf_extract(pdf_path):
     pdf_file.close()
     return text
 
+
 def nougat_extract(pdf_path):
     path = pdf_path
     pdf_name = os.path.splitext(os.path.basename(pdf_path))[0]
     print(pdf_name)
-    # command = [
-    #     "nougat",
-    #     "--markdown",
-    #     "pdf",
-    #     path,
-    #     "--out",
-    #     ".",
-    # ]
 
     with st.spinner("Processing..."):
-        # Set the environment variable
-        os.environ['PYTORCH_ENABLE_MPS_FALLBACK'] = '1'
-
-        # Run the nougat command
-        subprocess.run(['nougat', '--markdown', path, 'f2.pdf', '--out', '.'], check=True)
+        os.environ['PYTORCH_ENABLE_MPS_FALLBACK'] = '1'  # Use CPU if GPU not available
+        subprocess.run(['nougat', '--markdown', 'pdf', path, '--out', '.'], check=True)
         st.success("Process completed!")
         pdf_name = os.path.splitext(os.path.basename(pdf_path))[0]
         file_contents = f'{pdf_name}.mmd'
         file = open(file_contents, 'r')
         return file.read()
-
 
 
 def display(package, text_string):
@@ -63,6 +58,28 @@ def display(package, text_string):
     )
 
 
+def summary(text):
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(text)
+    sentences = list(doc.sents)
+    urls = [token.text for token in doc if token.like_url]
+    numbers = re.findall(r'\b\d+\b', text)
+    num_numbers = len(numbers)  
+    num_links = len(urls)
+    num_sentences = len(sentences)
+    num_words = len(doc)
+    return [num_words, num_sentences, num_numbers, num_links]
+
+
+def disp_summary(title, l, t):
+    st.markdown(f'<h3>{title}</h3>', unsafe_allow_html=True)
+    st.markdown(f"Words - {l[0]}")
+    st.markdown(f"Sentences - {l[1]}")
+    st.markdown(f"Number - {l[2]}")
+    st.markdown(f"Links - {l[3]}")
+    st.markdown(f"Execution Time - {t}")
+
+
 # Input for the PDF link
 pdf_link = st.text_input("Enter the PDF link:")
 analyze_button = st.button("Analyze")
@@ -70,13 +87,26 @@ analyze_button = st.button("Analyze")
 if pdf_link and analyze_button:
     file_name = pdf_link.split("/")[-1]
     download_pdf(pdf_link, file_name)
+    start = time.time()
     pypdf_text = pypdf_extract(file_name)
+    end = time.time()
+    p_exec = end - start
     display("PyPDF", pypdf_text)
+    start = time.time()
     nougat_text = nougat_extract(file_name)
+    end = time.time()
+    n_exec = end - start
     display("Nougat", nougat_text)
-try:
-    if pdf_link:
-        os.remove(file_name)
-except:
-    pass
+    p_summary = summary(pypdf_text)
+    n_summary = summary(nougat_text)
+    col1, col2 = st.columns(2)
+    with col1:
+        disp_summary('PyPDF', p_summary, p_exec)
+    with col2:
+        disp_summary('Nougat', n_summary, n_exec)
+
+
+
+
+
 

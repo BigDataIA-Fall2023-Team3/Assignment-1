@@ -164,3 +164,7 @@ Part-1/streamlit/.streamlit
 Part-2/.DS_Store
 Part-2/streamlit/.streamlit
 **/.DS_Store
+Part-2/streamlit/bin
+Part-2/streamlit/etc
+Part-2/streamlit/images
+Part-2/streamlit/include 

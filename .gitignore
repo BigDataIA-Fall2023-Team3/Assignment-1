@@ -161,3 +161,6 @@ cython_debug/
 Part-1/streamlit/.streamlit
 *pdf 
 *mmd
+Part-2/.DS_Store
+Part-2/streamlit/.streamlit
+**/.DS_Store

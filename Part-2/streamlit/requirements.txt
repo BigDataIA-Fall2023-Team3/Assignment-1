@@ -104,7 +104,7 @@ pyarrow==13.0.0
 pycparser==2.21
 pydantic==2.0.1
 pydantic_core==2.0.2
-pydantic-settings==2.0.3
+pydantic-settings
 pydeck==0.8.1b0
 Pygments==2.16.1
 pyparsing==3.1.1

@@ -328,7 +328,8 @@
 # zope.interface==4.7.1
 
 
-streamlit
+
 great-expectations==0.17.21
+streamlit
 ydata-profiling
 matplotlib

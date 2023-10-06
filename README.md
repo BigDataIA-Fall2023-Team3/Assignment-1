@@ -16,10 +16,12 @@ This project involves building a Streamlit-based tool that serves two primary pu
 
 - Data from the "Freddie Mac Origination File" and "Freddi Mac Monthly Performance File" is directed to the "Pandas Profiling" component for data processing.
 - Enables users to upload CSV/XLS files containing either Origination or Monthly performance data from the Freddie Mac Single Family Dataset.
-- Utilizes Pandas Profiling to generate data summaries and displays them to the end user.
-- Executes Great Expectations tests to ensure the following:
-- It goes to "Great Expectations (GX)," indicating that some kind of data validation or testing is performed.
-- Data is stored in Amazon S3 for storage purposes and is monitored and tracked using "Amazon Cloud Watch.
+- Pandas Profiling is performed generate data summaries and displays them to the end user.
+- Great Expectations tests are executed to ensure that the data adheres to the schema published by Freddie Mac by performing validations. This validation process ensures that the 
+  data meets the specified criteria and quality standards.
+- Additionally, the data is stored in Amazon S3 for storage purposes and is continuously monitored and tracked using "Amazon Cloud Watch" to ensure system performance and data 
+  integrity.
+
 
 ## Architecture
 

@@ -1,160 +1,161 @@
-# altair
-# annotated-types
-# anyio
-# appnope
-# argon2-cffi
-# argon2-cffi-bindings
-# arrow
-# asttokens
-# async-lru
-# attrs
-# Babel
-# backcall
-# beautifulsoup4
-# bleach
-# blinker
-# boto3
-# botocore
-# cachetools
-# certifi
-# cffi
-# charset-normalizer
-# click
-# cloudwatch
-# colorama
-# comm
-# contourpy
-# cryptography
-# cycler
-# debugpy
-# decorator
-# defusedxml
-# entrypoints
-# executing
-# fastjsonschema
-# fonttools
-# fqdn
-# gitdb
-# GitPython
-# great-expectations
-# htmlmin
-# idna
-# ImageHash
-# importlib-metadata
-# ipykernel
-# ipython
-# ipywidgets
-# isoduration
-# jedi
-# Jinja2
-# jmespath
-# joblib
-# json5
-# jsonpatch
-# jsonpointer
-# jsonschema
-# jsonschema-specifications
-# jupyter-events
-# jupyter-lsp
-# jupyter_client
-# jupyter_core
-# jupyter_server
-# jupyter_server_terminals
-# jupyterlab
-# jupyterlab-pygments
-# jupyterlab-widgets
-# jupyterlab_server
-# kiwisolver
-# makefun
-# markdown-it-py
-# MarkupSafe
-# marshmallow
-# matplotlib==3.5.1
-# matplotlib-inline
-# mdurl
-# missingno
-# mistune
-# multimethod
-# nbclient
-# nbconvert
-# nbformat
-# nest-asyncio
-# networkx
-# notebook
-# notebook_shim
-# numpy
-# overrides
-# packaging
-# pandas
-# pip
-# pandas-profiling
-# pandocfilters
-# parso
-# pexpect
-# phik
-# pickleshare
-# Pillow
-# platformdirs
-# prometheus-client
-# prompt-toolkit
-# protobuf
-# psutil
-# ptyprocess
-# pure-eval
-# pyarrow
-# pycparser
-# pydantic
-# pydantic_core
-# pydeck
-# Pygments
-# pyparsing
-# python-dateutil
-# python-json-logger
-# pytz
-# PyWavelets
-# PyYAML
-# pyzmq
-# referencing
-# requests
-# rfc3339-validator
-# rfc3986-validator
-# rich
-# rpds-py
-# ruamel.yaml
-# s3transfer
-# scipy
-# seaborn
-# Send2Trash
-# six
-# smmap
-# sniffio
-# soupsieve
-# stack-data
-# streamlit
-# tangled-up-in-unicode
-# tenacity
-# terminado
-# tinycss2
-# toml
-# toolz
-# tornado
-# tqdm
-# traitlets
-# types-python-dateutil
-# typing_extensions
-# tzdata
-# tzlocal
-# uri-template
-# urllib3
-# validators
-# visions
-# wcwidth
-# webcolors
-# webencodings
-# websocket-client
-# widgetsnbextension
-# zipp
-streamlit
+altair
+annotated-types
+anyio
+appnope
+argon2-cffi
+argon2-cffi-bindings
+arrow
+asttokens
+async-lru
+attrs
+Babel
+backcall
+beautifulsoup4
+bleach
+blinker
+boto3
+botocore
+cachetools
+certifi
+cffi
+charset-normalizer
+click
+cloudwatch
+colorama
+comm
+contourpy
+cryptography
+
+cycler
+debugpy
+decorator
+defusedxml
+entrypoints
+executing
+fastjsonschema
+fonttools
+fqdn
+gitdb
+GitPython
 great-expectations
-ydata-profiling
-matplotlib
+htmlmin
+idna
+ImageHash
+importlib-metadata
+ipykernel
+ipython
+ipywidgets
+isoduration
+jedi
+Jinja2
+jmespath
+joblib
+json5
+jsonpatch
+jsonpointer
+jsonschema
+jsonschema-specifications
+jupyter-events
+jupyter-lsp
+jupyter_client
+jupyter_core
+jupyter_server
+jupyter_server_terminals
+jupyterlab
+jupyterlab-pygments
+jupyterlab-widgets
+jupyterlab_server
+kiwisolver
+makefun
+markdown-it-py
+MarkupSafe
+marshmallow
+matplotlib==3.5.1
+matplotlib-inline
+mdurl
+missingno
+mistune
+multimethod
+nbclient
+nbconvert
+nbformat
+nest-asyncio
+networkx
+notebook
+notebook_shim
+numpy
+overrides
+packaging
+pandas
+pip
+pandas-profiling
+pandocfilters
+parso
+pexpect
+phik
+pickleshare
+Pillow
+platformdirs
+prometheus-client
+prompt-toolkit
+protobuf
+psutil
+ptyprocess
+pure-eval
+pyarrow
+pycparser
+pydantic
+pydantic_core
+pydeck
+Pygments
+pyparsing
+python-dateutil
+python-json-logger
+pytz
+PyWavelets
+PyYAML
+pyzmq
+referencing
+requests
+rfc3339-validator
+rfc3986-validator
+rich
+rpds-py
+ruamel.yaml
+s3transfer
+scipy
+seaborn
+Send2Trash
+six
+smmap
+sniffio
+soupsieve
+stack-data
+streamlit
+tangled-up-in-unicode
+tenacity
+terminado
+tinycss2
+toml
+toolz
+tornado
+tqdm
+traitlets
+types-python-dateutil
+typing_extensions
+tzdata
+tzlocal
+uri-template
+urllib3
+validators
+visions
+wcwidth
+webcolors
+webencodings
+websocket-client
+widgetsnbextension
+zipp
+# streamlit
+# great-expectations
+# ydata-profiling
+# matplotlib

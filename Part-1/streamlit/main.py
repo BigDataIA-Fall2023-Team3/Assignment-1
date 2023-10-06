@@ -22,8 +22,8 @@ formatter = logging.Formatter('%(asctime)s : %(levelname)s - %(message)s')
 handler = cloudwatch.CloudwatchHandler(
  log_group = 'Assignment-1-Part-1',
  log_stream = 'streamlit',
- access_id = 'AKIAQW3PT3TCY6TR4H2X', 
- access_key = 'oBbTE4hje1mjl4j/feTrpG17xg8nG5c0w6DBmnoY'
+ access_id = st.secrets['AWS_ACCESS_KEY_ID'], 
+ access_key = st.secrets['AWS_SECRET_ACCESS_KEY']
 )
 
 #Pass the formater to the handler

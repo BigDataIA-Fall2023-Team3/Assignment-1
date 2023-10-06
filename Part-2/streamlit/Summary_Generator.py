@@ -2,6 +2,7 @@ import pandas as pd
 import logging
 import streamlit as st
 from pandas_profiling import ProfileReport
+import ydata_profiling
 from io import BytesIO
 import tempfile
 import shutil

@@ -155,60 +155,11 @@ checkpoint = context.add_or_update_checkpoint(
 checkpoint_result = checkpoint.run()
 
 
+pretty_json_str = json.dumps(checkpoint_result.to_json_dict(), indent=4)
 
 
-# ... (Your existing code for setting up the validator)
+context.view_validation_result(checkpoint_result)
 
-# Run the checkpoint and capture the result
-checkpoint_result = checkpoint.run()
-
-
-output_file = "checkpoint_result.html"
-
-# Function to convert JSON/dictionary to HTML and save to a file
-def convert_to_html_and_save(data, output_file):
-    # Create an HTML string from the JSON/dictionary
-    html_content = "<html><body>"
-    for key, value in data.items():
-        html_content += f"<p><b>{key}:</b> {value}</p>"
-    html_content += "</body></html>"
-
-    # Create an HTML file
-    with codecs.open(output_file, 'w', encoding='utf-8') as file:
-        file.write(html_content)
-
-# Streamlit app
-st.title("Great Expectations Check Results")
-
-# Display the JSON-like checkpoint result
-st.write("Checkpoint Result:")
-st.json(checkpoint_result.to_json_dict())
-
-# Create a button to trigger the conversion
-if st.button("Convert to HTML"):
-    convert_to_html_and_save(checkpoint_result.to_json_dict(), output_file)
-    st.success(f"Checkpoint result converted to HTML and saved to {output_file}")
-
-# Display the HTML file if it exists
-if st.checkbox("Show HTML Output"):
-    try:
-        with open(output_file, 'r', encoding='utf-8') as file:
-            html_content = file.read()
-        st.markdown(html_content, unsafe_allow_html=True)
-    except FileNotFoundError:
-        st.warning("HTML output file does not exist. Please click the 'Convert to HTML' button.")
-
-
-
-
-
-
- 
-# pretty_json_str = json.dumps(checkpoint_result.to_json_dict(), indent=4)
-
-
-# context.view_validation_result(checkpoint_result)
-
-# st.write(f"### Great Expectations Check Results ")
-# st.write(checkpoint_result)
+st.write(f"### Great Expectations Check Results ")
+st.write(checkpoint_result)
 # # st.write(html_result)

@@ -1,7 +1,7 @@
 ## Assignment-1
-# Financial Data Quality Assessment and Summarization Tool for SEC PDFs and Freddie Mac Datasets
+## Data Quality Assessment and Summarization Tool for SEC PDFs and Freddie Mac Datasets
 
-### Project Description:
+## Project Description:
 This project involves building a Streamlit-based tool that serves two primary purposes:
 
 ## Part 1: PDF Analyzer
@@ -22,25 +22,21 @@ This project involves building a Streamlit-based tool that serves two primary pu
 - Additionally, the data is stored in Amazon S3 for storage purposes and is continuously monitored and tracked using "Amazon Cloud Watch" to ensure system performance and data 
   integrity.
 
+## Technology Stack:
+- Streamlit
+- PyPdf
+- Nougat
+- Pandas Profiling
+- Great Expectations
+- AWS
 
 ## Architecture
 
 ### PDF Analyzer
-
-![architecture_diagram_part-1](https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/71171604/e8a09a22-6a24-4efb-8a4f-89387330bde3)
-
-
+![WhatsApp Image 2023-10-05 at 10 37 38 PM](https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/114708712/0a00a911-9c1a-4a9e-883f-189c04612579)
 ### Data Quality Evaluation Tool 
-
-
-![architecture_diagram-part2](https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/71171604/1ca233e5-f688-4010-80aa-b0e72727ddd1)
-
-
-
-# File Structure
-
-
-# Running the project
+![architecture_diagram-part2](https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/114708712/85de66f0-3cdc-4951-86ef-af93565a2f22)
+## Running the project
 
 #### Create Virtual Environment
 
@@ -59,8 +55,7 @@ WE ATTEST THAT WE HAVEN’T USED ANY OTHER STUDENTS’ WORK IN OUR ASSIGNMENT
 
 AND ABIDE BY THE POLICIES LISTED IN THE STUDENT HANDBOOK
 
- ### Contribution: 
-
+ ## Contributions: 
 
 ● Sumanayana Konda: 25% 
 

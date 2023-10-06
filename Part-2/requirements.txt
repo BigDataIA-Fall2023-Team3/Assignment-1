@@ -329,6 +329,6 @@
 
 
 streamlit
-great-expectations
+great-expectations==0.17.21
 ydata-profiling
 matplotlib

@@ -108,7 +108,6 @@ marshmallow==3.20.1
 matplotlib-inline==0.1.6
 mccabe==0.6.1
 mdurl==0.1.2
-mkl-fft==1.1.0
 mkl-random==1.1.1
 mkl-service==2.3.0
 mock==4.0.2

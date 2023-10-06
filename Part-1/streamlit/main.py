@@ -1,4 +1,5 @@
 import logging
+import boto3
 from cloudwatch import cloudwatch
 import streamlit as st
 import requests
@@ -9,6 +10,8 @@ import spacy
 import re
 import time
 import boto3
+import zipfile
+import io
 
 aws_region = 'us-east-1'
 boto3.setup_default_session(region_name=aws_region)
@@ -19,8 +22,8 @@ formatter = logging.Formatter('%(asctime)s : %(levelname)s - %(message)s')
 handler = cloudwatch.CloudwatchHandler(
  log_group = 'Assignment-1-Part-1',
  log_stream = 'streamlit',
- access_id = st.secrets['AWS_ACCESS_KEY_ID'], 
- access_key = st.secrets['AWS_SECRET_ACCESS_KEY']
+ access_id = 'AKIAQW3PT3TCY6TR4H2X', 
+ access_key = 'oBbTE4hje1mjl4j/feTrpG17xg8nG5c0w6DBmnoY'
 )
 
 #Pass the formater to the handler
@@ -133,6 +136,7 @@ def disp_summary(title, l, t):
     st.write(f"Links - {l[3]}")
     st.write(f"Execution Time - {t:.2f} seconds")
 
+
 def generate_summary_text(l, t):
     logger.info("Generating Summary Text function is invoked")
     summary_text = (
@@ -167,28 +171,30 @@ try:
         if extractor_choice == 'PyPdf':
             logger.info("PyPdf Extraction is selected")
             start = time.time()
-            logger.info("File is extracted and Downloaded from the link")
+            logger.info("PyPdf Extraction started")
             pypdf_text = pypdf_extract(file_name)
             end = time.time()
-            p_exec = end - start
-            logger.info("PyPdf Extraction started")
-            display("PyPDF", pypdf_text)
             logger.info("PyPdf Extraction completed")
+            p_exec = end - start
+            display("PyPDF", pypdf_text)
             p_summary = summary(pypdf_text)
             disp_summary('PyPDF Summary', p_summary, p_exec)
             logger.info("PyPdf Summary completed")
+            sio = io.BytesIO()
+            # Create a new ZIP file in this buffer
+            with zipfile.ZipFile(sio, 'w') as zf:
+                # Add each file to the ZIP
+                zf.writestr("Extract.txt", pypdf_text)
+                zf.writestr("Summary.txt", generate_summary_text(p_summary, p_exec))
+            # Go back to the beginning of the buffer stream
+            sio.seek(0)
             st.download_button(
-                label="Download Extracted Data",
-                data=pypdf_text,
-                file_name="pypdf_extraction.txt"
+                label="Download",
+                data=sio,
+                file_name="Pypdf_files.zip",
+                mime="application/zip"
             )
-            st.download_button(
-                label="Download Summary",
-                data=generate_summary_text(p_summary, p_exec),
-                file_name="pypdf_summary.txt"
-            )
-            os.remove(file_name)
-            logger.info("File removed")
+            
 
 
 
@@ -205,74 +211,97 @@ try:
             n_summary = summary(nougat_text)
             disp_summary('Nougat Summary', n_summary, n_exec)
             logger.info("Nougat Summary completed")
+            # st.download_button(
+            #     label="Download Extracted Data",
+            #     data=nougat_text,
+            #     file_name="nougat_extraction.txt"
+            # )
+            # st.download_button(
+            #     label="Download Summary",
+            #     data=generate_summary_text(n_summary, n_exec),
+            #     file_name="nougat_summary.txt"
+            # )
+            sio = io.BytesIO()
+            # Create a new ZIP file in this buffer
+            with zipfile.ZipFile(sio, 'w') as zf:
+                # Add each file to the ZIP
+                zf.writestr("Extract.txt", nougat_text)
+                zf.writestr("Summary.txt", generate_summary_text(n_summary, n_exec))
+            # Go back to the beginning of the buffer stream
+            sio.seek(0)
             st.download_button(
-                label="Download Extracted Data",
-                data=nougat_text,
-                file_name="nougat_extraction.txt"
+                label="Download",
+                data=sio,
+                file_name="Nougat_files.zip",
+                mime="application/zip"
             )
-            st.download_button(
-                label="Download Summary",
-                data=generate_summary_text(n_summary, n_exec),
-                file_name="nougat_summary.txt"
-            )
-            os.remove(file_name)
-            logger.info("File removed")
 
 
         if extractor_choice == 'Nougat and PyPdf':
             logger.info("Nougat and PyPdf Extraction is selected")
             col1, col2 = st.columns(2)
             start = time.time()
-            logger.info("File is extracted and Downloaded from the link")
+            # logger.info("File is extracted and Downloaded from the link")
+            logger.info("Nougat Extraction started")
             nougat_text = nougat_extract(file_name)
+            logger.info("Nougat Extraction completed")
             end = time.time()
             n_exec = end - start
-
-
-            with col1:
-                logger.info("Nougat Extraction started")
-                display("Nougat", nougat_text)
-                logger.info("Nougat Extraction completed")
-                n_summary = summary(nougat_text)
-                disp_summary('Nougat Summary', n_summary, n_exec)
-                logger.info("Nougat Summary completed")
-                st.download_button(
-                    label="Download Nougat Extracted Data",
-                    data=nougat_text,
-                    file_name="nougat_extraction.txt"
-                )
-                logger.info("Nougat Extraction downloaded")
-                st.download_button(
-                    label="Download Nougat Summary",
-                    data=generate_summary_text(n_summary, n_exec),
-                    file_name="nougat_summary.txt"
-                )
-                logger.info("Nougat Summary downloaded")
             start = time.time()
             pypdf_text = pypdf_extract(file_name)
             end = time.time()
             p_exec = end - start
+            n_summary = summary(nougat_text)
+            p_summary = summary(pypdf_text)
 
+
+            with col1:
+                
+                display("Nougat", nougat_text)
+                disp_summary('Nougat Summary', n_summary, n_exec)
+                logger.info("Nougat Summary completed")
+                sio = io.BytesIO()
+                # Create a new ZIP file in this buffer
+                with zipfile.ZipFile(sio, 'w') as zf:
+                    # Add each file to the ZIP
+                    zf.writestr("Extract.txt", nougat_text)
+                    zf.writestr("Summary.txt", generate_summary_text(n_summary, n_exec))
+                # Go back to the beginning of the buffer stream
+                sio.seek(0)
+                st.download_button(
+                    label="Download",
+                    data=sio,
+                    file_name="Nougat_files.zip",
+                    mime="application/zip"
+                )
+                logger.info("Nougat Summary downloaded")
+                
+            
 
             with col2:
                 logger.info("PyPdf Extraction started")
                 display("PyPDF", pypdf_text)
                 logger.info("PyPdf Extraction completed")
-                p_summary = summary(pypdf_text)
                 disp_summary('PyPDF Summary', p_summary, p_exec)
                 logger.info("PyPdf Summary completed")
+                sio = io.BytesIO()
+                # Create a new ZIP file in this buffer
+                with zipfile.ZipFile(sio, 'w') as zf:
+                    # Add each file to the ZIP
+                    zf.writestr("Extract.txt", pypdf_text)
+                    zf.writestr("Summary.txt", generate_summary_text(p_summary, p_exec))
+                # Go back to the beginning of the buffer stream
+                sio.seek(0)
                 st.download_button(
-                    label="Download PyPDF Extracted Data",
-                    data=pypdf_text,
-                    file_name="pypdf_extraction.txt"
+                    label="Download",
+                    data=sio,
+                    file_name="Nougat_files.zip",
+                    mime="application/zip"
                 )
-                st.download_button(
-                    label="Download PyPDF Summary",
-                    data=generate_summary_text(p_summary, p_exec),
-                    file_name="pypdf_summary.txt"
-                )
-            os.remove(file_name)
-            logger.info("File removed")
+
+        os.remove(file_name)
+        logger.info("File removed")
+
 except:
     st.error("Something went wrong!")
     st.error("Please check the PDF link and try again!")

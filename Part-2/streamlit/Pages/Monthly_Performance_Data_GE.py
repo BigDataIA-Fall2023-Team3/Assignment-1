@@ -150,7 +150,7 @@ checkpoint = context.add_or_update_checkpoint(
 
 checkpoint_result = checkpoint.run()
 
-checkpoint_result = ge_df.validate()
+checkpoint_result = checkpoint.validate()
 
  
 pretty_json_str = json.dumps(checkpoint_result.to_json_dict(), indent=4)

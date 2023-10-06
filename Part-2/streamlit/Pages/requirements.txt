@@ -155,6 +155,7 @@ webencodings
 websocket-client
 widgetsnbextension
 zipp
+ydata-profiling
 # streamlit
 # great-expectations
 # ydata-profiling

@@ -162,6 +162,9 @@ checkpoint_result = checkpoint.run()
 # Run the checkpoint and capture the result
 checkpoint_result = checkpoint.run()
 
+
+output_file = "checkpoint_result.html"
+
 # Function to convert JSON/dictionary to HTML and save to a file
 def convert_to_html_and_save(data, output_file):
     # Create an HTML string from the JSON/dictionary
@@ -183,7 +186,6 @@ st.json(checkpoint_result.to_json_dict())
 
 # Create a button to trigger the conversion
 if st.button("Convert to HTML"):
-    output_file = "checkpoint_result.html"
     convert_to_html_and_save(checkpoint_result.to_json_dict(), output_file)
     st.success(f"Checkpoint result converted to HTML and saved to {output_file}")
 
@@ -195,6 +197,7 @@ if st.checkbox("Show HTML Output"):
         st.markdown(html_content, unsafe_allow_html=True)
     except FileNotFoundError:
         st.warning("HTML output file does not exist. Please click the 'Convert to HTML' button.")
+
 
 
 

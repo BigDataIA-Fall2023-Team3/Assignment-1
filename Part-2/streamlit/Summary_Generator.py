@@ -3,10 +3,8 @@ import logging
 import streamlit as st
 from pandas_profiling import ProfileReport
 from io import BytesIO
-import tempfile
-import shutil
 import boto3
-import os
+
 
 
 # AWS credentials
@@ -21,6 +19,8 @@ formatter = logging.Formatter('%(asctime)s : %(levelname)s - %(message)s')
 
 # S3 bucket name
 s3_bucket_name = 'assignment-1-part-2' 
+
+
 
 
 st.title("File Summary Generator")

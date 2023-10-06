@@ -19,19 +19,19 @@ s3_client = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_a
 logger = logging.getLogger('my_logger')
 formatter = logging.Formatter('%(asctime)s : %(levelname)s - %(message)s')
 
-handler = cloudwatch.CloudwatchHandler(
- log_group = 'Assignment-1-Part-2',
- log_stream = 'streamlit',
- access_id = aws_access_key_id, 
- access_key = aws_secret_access_key
-)
+# handler = cloudwatch.CloudwatchHandler(
+#  log_group = 'Assignment-1-Part-2',
+#  log_stream = 'streamlit',
+#  access_id = aws_access_key_id, 
+#  access_key = aws_secret_access_key
+# )
 
-#Pass the formater to the handler
-handler.setFormatter(formatter)
-#Set the level
-logger.setLevel(logging.INFO)
-#Add the handler to the logger
-logger.addHandler(handler)
+# #Pass the formater to the handler
+# handler.setFormatter(formatter)
+# #Set the level
+# logger.setLevel(logging.INFO)
+# #Add the handler to the logger
+# logger.addHandler(handler)
 
 # S3 bucket name
 s3_bucket_name = 'assignment-1-part-2' 

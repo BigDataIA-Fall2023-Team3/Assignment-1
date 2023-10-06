@@ -150,7 +150,7 @@ checkpoint = context.add_or_update_checkpoint(
 
 
 
-checkpoint_result = checkpoint.run()
+checkpoint_result = checkpoint_result.to_json_dict()
 
 
 context.view_validation_result(checkpoint_result)

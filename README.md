@@ -1,5 +1,6 @@
 ## Assignment-1
 
+#### [streamlit app Part-1](https://part-1.streamlit.app/)
 #### [streamlit app Part-2](https://assignment-1-part-2.streamlit.app/)
 #### [streamlit app Part-2-GX](https://assignment-1-part-2-gx.streamlit.app/)
 

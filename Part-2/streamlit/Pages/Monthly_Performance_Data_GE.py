@@ -150,10 +150,18 @@ checkpoint = context.add_or_update_checkpoint(
 
 checkpoint_result = checkpoint.run()
 
-html_result=checkpoint_result.to_json_dict()
+report = gx.data_context.render_full_static_site_checkpoint(
+    run_id=checkpoint_result.run_id,
+    run_uri=checkpoint_result.run_id
+)
+
+# Display the HTML report using st.components
+st.components.v1.html(report, width=1000, height=800)
+
+# html_result=checkpoint_result.to_json_dict()
 
 
 context.view_validation_result(checkpoint_result)
 
 st.write(f"### Great Expectations Check Results ")
-st.write(html_result)
+# st.write(html_result)

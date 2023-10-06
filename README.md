@@ -1,4 +1,8 @@
 ## Assignment-1
+
+streamlit app
+codelabs
+
 ## Data Quality Assessment and Summarization Tool for SEC PDFs and Freddie Mac Datasets
 
 ### Project Description:

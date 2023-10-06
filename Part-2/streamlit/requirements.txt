@@ -114,7 +114,6 @@ mpmath==1.1.0
 msgpack==1.0.0
 multimethod==1.10
 multipledispatch==0.6.0
-navigator-updater==0.2.1
 nbclient==0.8.0
 nbconvert==7.8.0
 nbformat==5.0.7

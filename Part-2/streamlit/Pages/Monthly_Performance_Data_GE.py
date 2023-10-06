@@ -11,7 +11,7 @@ print("validator: on line 9")
 
 
 
-file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Sample_orig_2022.csv"))
+file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Sample_svcg_2022.csv"))
 
  
 

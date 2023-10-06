@@ -69,7 +69,7 @@ makefun
 markdown-it-py
 MarkupSafe
 marshmallow
-matplotlib=3.5.1
+matplotlib==3.5.1
 matplotlib-inline
 mdurl
 missingno

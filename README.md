@@ -40,7 +40,13 @@ This project involves building a Streamlit-based tool that serves two primary pu
 ![WhatsApp Image 2023-10-05 at 10 37 38 PM](https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/114708712/0a00a911-9c1a-4a9e-883f-189c04612579)
 #### Data Quality Evaluation Tool 
 ![architecture_diagram-part2](https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/114708712/85de66f0-3cdc-4951-86ef-af93565a2f22)
+
 ### Running the project
+
+
+
+<img width="693" alt="Screen Shot 2023-10-06 at 10 45 57 AM copy" src="https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/71171604/6f34abc6-9b02-4367-948a-7b36759c840b">
+
 
 #### Create Virtual Environment
 

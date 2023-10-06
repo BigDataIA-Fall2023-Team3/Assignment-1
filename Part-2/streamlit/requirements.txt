@@ -57,6 +57,7 @@ cryptography==41.0.4
 cycler==0.10.0
 Cython @ file:///opt/concourse/worker/volumes/live/6158b663-a4ca-4e19-7e05-8807e4f79146/volume/cython_1594835048880/work
 cytoolz==0.10.1
+cloudwatch==1.2.1
 dacite==1.8.1
 dask @ file:///tmp/build/80754af9/dask-core_1594156306305/work
 decorator==4.4.2

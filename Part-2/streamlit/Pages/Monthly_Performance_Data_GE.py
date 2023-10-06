@@ -11,7 +11,7 @@ print("validator: on line 9")
 
 
 
-file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Sample_svcg_2022.csv"))
+file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Sample_sv_2022.csv"))
 
  
 
@@ -150,10 +150,12 @@ checkpoint = context.add_or_update_checkpoint(
 
 
 
-checkpoint_result = checkpoint_result.to_json_dict()
+checkpoint_result = checkpoint.run()
+
+html_result=checkpoint_result.to_json_dict()
 
 
 context.view_validation_result(checkpoint_result)
 
 st.write(f"### Great Expectations Check Results ")
-st.write(checkpoint_result)
+st.write(html_result)

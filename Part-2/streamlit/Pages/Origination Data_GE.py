@@ -5,6 +5,7 @@ import streamlit as st
 import os
 
 
+
 print("line 7")
 context = gx.get_context()
 print("validator: on line 9")
@@ -12,6 +13,7 @@ print("validator: on line 9")
 file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Sample_orig_2022.csv"))
 
 validator = context.sources.pandas_default.read_csv(file_path)
+
 
 print("validator:")
 print(type(validator))
@@ -31,6 +33,7 @@ validator.expect_column_values_to_not_be_null("First Time Homebuyer Flag")
 validator.expect_column_values_to_match_regex("First Time Homebuyer Flag",r"^[a-zA-Z0-9]+$")
 validator.expect_column_values_to_be_in_set("First Time Homebuyer Flag",['Y','N'])
 validator.expect_column_values_to_be_in_set("First Time Homebuyer Flag",['9'],  mostly = 0.1)
+
 
 
 #Maturity Date

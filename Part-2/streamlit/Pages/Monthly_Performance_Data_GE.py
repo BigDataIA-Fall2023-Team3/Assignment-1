@@ -2,15 +2,24 @@
 import great_expectations as gx
 import pandas as pd
 import streamlit as st 
+import os
 
 
 print("line 7")
 context = gx.get_context()
 print("validator: on line 9")
 
-validator = context.sources.pandas_default.read_csv(
-    "/Users/pavanmadhavnainala/Desktop/Big Data/Sample_svcg_2022.csv"
-)
+
+
+file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Sample_orig_2022.csv"))
+
+ 
+
+validator = context.sources.pandas_default.read_csv(file_path)
+
+# validator = context.sources.pandas_default.read_csv(
+#     "/Users/pavanmadhavnainala/Desktop/Big Data/Sample_svcg_2022.csv"
+# )
 
 print("validator:")
 print(type(validator))

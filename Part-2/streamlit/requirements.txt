@@ -36,7 +36,7 @@ fonttools
 fqdn
 gitdb
 GitPython
-great-expectations
+great_expectations
 htmlmin
 idna
 ImageHash

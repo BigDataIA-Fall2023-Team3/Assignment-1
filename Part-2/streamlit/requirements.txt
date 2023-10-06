@@ -177,7 +177,7 @@ rich==13.5.3
 rope==0.17.0
 rpds-py==0.10.3
 rsa==4.5
-ruamel-yaml==0.15.87
+ruamel-yaml==0.16
 ruamel.yaml.clib==0.2.7
 s3transfer==0.7.0
 scipy==1.10.1

@@ -101,7 +101,7 @@ def get_sentences(text):
     sentences = list(doc.sents)
     for i in sentences:
         t = i.text
-        s = s+t.strip()+"\n"+"\n"
+        s = s+"-->"+t.strip()+"\n"
     return s
 
 
@@ -112,7 +112,7 @@ def get_words(text):
 
     for token in doc:
         t = token.text
-        s = s+t.strip()+"\n"
+        s = s+"-->"+t.strip()+"\n"
     return s
 
 

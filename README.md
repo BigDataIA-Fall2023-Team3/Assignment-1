@@ -1,10 +1,10 @@
 ## Assignment-1
 ## Data Quality Assessment and Summarization Tool for SEC PDFs and Freddie Mac Datasets
 
-## Project Description:
+### Project Description:
 This project involves building a Streamlit-based tool that serves two primary purposes:
 
-## Part 1: PDF Analyzer
+### Part 1: PDF Analyzer
 
 - Allows users to input a link to a PDF document from the SEC website.
 - Provides the option to choose between the "nougat" and "pypdf" libraries for PDF processing.
@@ -12,7 +12,7 @@ This project involves building a Streamlit-based tool that serves two primary pu
 - From "streamlit," the data flows to two different custom components: "Nougat" and "PyPdf."
 - Both "Nougat" and "PyPdf" components feed their processed data to a custom component called "Spacy." 
 
-## Part 2: Data Quality Evaluation Tool 
+### Part 2: Data Quality Evaluation Tool 
 
 - Data from the "Freddie Mac Origination File" and "Freddi Mac Monthly Performance File" is directed to the "Pandas Profiling" component for data processing.
 - Enables users to upload CSV/XLS files containing either Origination or Monthly performance data from the Freddie Mac Single Family Dataset.
@@ -22,7 +22,7 @@ This project involves building a Streamlit-based tool that serves two primary pu
 - Additionally, the data is stored in Amazon S3 for storage purposes and is continuously monitored and tracked using "Amazon Cloud Watch" to ensure system performance and data 
   integrity.
 
-## Technology Stack:
+### Technology Stack:
 - Streamlit
 - PyPdf
 - Nougat
@@ -30,13 +30,13 @@ This project involves building a Streamlit-based tool that serves two primary pu
 - Great Expectations
 - AWS
 
-## Architecture
+### Architecture
 
-### PDF Analyzer
+#### PDF Analyzer
 ![WhatsApp Image 2023-10-05 at 10 37 38 PM](https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/114708712/0a00a911-9c1a-4a9e-883f-189c04612579)
-### Data Quality Evaluation Tool 
+#### Data Quality Evaluation Tool 
 ![architecture_diagram-part2](https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/114708712/85de66f0-3cdc-4951-86ef-af93565a2f22)
-## Running the project
+### Running the project
 
 #### Create Virtual Environment
 
@@ -55,7 +55,7 @@ WE ATTEST THAT WE HAVEN’T USED ANY OTHER STUDENTS’ WORK IN OUR ASSIGNMENT
 
 AND ABIDE BY THE POLICIES LISTED IN THE STUDENT HANDBOOK
 
- ## Contributions: 
+ ### Contributions: 
 
 ● Sumanayana Konda: 25% 
 

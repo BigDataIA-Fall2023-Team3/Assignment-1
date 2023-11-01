@@ -2,7 +2,6 @@
 
 #### [streamlit app Part-1](https://part-1.streamlit.app/)
 #### [streamlit app Part-2](https://assignment-1-part-2.streamlit.app/)
-#### [streamlit app Part-2-GX](https://assignment-1-part-2-gx.streamlit.app/)
 
 #### [codelabs](https://codelabs-preview.appspot.com/?file_id=1i1HbF6HBoYjjqOs1vbqH3SOrUFYEOoYAvam3goFDWHM#0)
 
@@ -26,13 +25,12 @@ This project involves building a Streamlit-based tool that serves two primary pu
 - Pandas Profiling is performed generate data summaries and displays them to the end user.
 - Great Expectations tests are executed to ensure that the data adheres to the schema published by Freddie Mac by performing validations. This validation process ensures that the 
   data meets the specified criteria and quality standards.
-- Additionally, the data is stored in Amazon S3 for storage purposes and is continuously monitored and tracked using "Amazon Cloud Watch" to ensure system performance and data 
-  integrity.
 
 ### Technology Stack:
 - Streamlit
 - PyPdf
 - Nougat
+- Spacy
 - Pandas Profiling
 - Great Expectations
 - AWS
@@ -42,11 +40,13 @@ This project involves building a Streamlit-based tool that serves two primary pu
 #### PDF Analyzer
 ![WhatsApp Image 2023-10-05 at 10 37 38 PM](https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/114708712/0a00a911-9c1a-4a9e-883f-189c04612579)
 #### Data Quality Evaluation Tool 
-![architecture_diagram-part2](https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/114708712/85de66f0-3cdc-4951-86ef-af93565a2f22)
+![architecture_diagram_part-2](https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/114708712/1bd788bb-420f-4e7d-859a-6c595d41badc)
+
 
 ### Navigation
-<img width="375" alt="Screen Shot 2023-10-06 at 1 52 15 PM" src="https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/114708712/ff3d3471-481e-406f-a05d-aa2d35ff3c48">
+Assignment-1
 
+<img width="368" alt="Screen Shot 2023-10-06 at 6 07 23 PM" src="https://github.com/BigDataIA-Fall2023-Team3/Assignment-1/assets/114708712/d0aca0bb-d155-4933-a386-d29f15455796">
 
 #### Create Virtual Environment
 
@@ -71,7 +71,6 @@ AND ABIDE BY THE POLICIES LISTED IN THE STUDENT HANDBOOK
 - Akshatha Patil: 25% 
 - Ruthwik Bommenahalli Gowda: 25%
 - Pavan Madhav Manikantha Sai Nainala: 25% 
-
 
 
 

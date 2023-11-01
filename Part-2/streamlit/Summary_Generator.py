@@ -1,5 +1,4 @@
 import pandas as pd
-import logging
 import streamlit as st
 from pandas_profiling import ProfileReport
 from io import BytesIO
@@ -13,9 +12,6 @@ aws_secret_access_key = st.secrets['AWS_SECRET_ACCESS_KEY']
 aws_region = 'us-east-1'
 # boto3.setup_default_session(region_name=aws_region)
 s3_client = boto3.client('s3', aws_access_key_id=aws_access_key_id, aws_secret_access_key=aws_secret_access_key,region_name=aws_region)
-
-formatter = logging.Formatter('%(asctime)s : %(levelname)s - %(message)s')
-
 
 # S3 bucket name
 s3_bucket_name = 'assignment-1-part-2' 

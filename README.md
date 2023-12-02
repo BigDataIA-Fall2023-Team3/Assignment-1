@@ -1,6 +1,6 @@
 ## Assignment-1
 
-#### [streamlit app Part-1](https://part-1.streamlit.app/)
+#### [streamlit app Part-1](https://assignment-1-part-1.streamlit.app/)
 #### [streamlit app Part-2](https://assignment-1-part-2.streamlit.app/)
 
 #### [codelabs](https://codelabs-preview.appspot.com/?file_id=1i1HbF6HBoYjjqOs1vbqH3SOrUFYEOoYAvam3goFDWHM#0)

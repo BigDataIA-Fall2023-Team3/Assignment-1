@@ -216,7 +216,7 @@ if upload_file and analyze_button:
     checkpoint_result = checkpoint.run()
     context.build_data_docs()
 
-    directory = "/app/assignment-1/Part-2/streamlit/gx/results/"  # Replace with the path to your folder
+    directory = "/mount/src/assignment-1/Part-2/streamlit/gx/results/"  # Replace with the path to your folder
     zip_filename = "Download.zip"
 
     zip_filename = "folder_content.zip"
